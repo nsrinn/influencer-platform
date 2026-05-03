@@ -10,7 +10,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/auth/register', form);
+      await axios.post('https://influencer-platform-production-e615.up.railway.app//auth/register', form);
       setMsg('Registered! Redirecting...');
       setTimeout(() => navigate('/login'), 1500);
     } catch (err) {
