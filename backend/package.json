@@ -2,11 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-<<<<<<< HEAD
     "start": "node index.js",
-=======
-     "start": "node index.js",
->>>>>>> f4b7495d658fbe792fa081138b6224a5aae3e139
     "seed": "node seed.js"
   },
   "dependencies": {
@@ -15,7 +11,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "pg": "^8.20.0",
+    "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.35.0",
     "uuid": "^9.0.0"
