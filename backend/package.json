@@ -2,11 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-<<<<<<< HEAD
     "start": "node index.js",
-=======
-     "start": "node index.js",
->>>>>>> f4b7495d658fbe792fa081138b6224a5aae3e139
     "seed": "node seed.js"
   },
   "dependencies": {
