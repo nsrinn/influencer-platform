@@ -19,7 +19,7 @@ const headers = { Authorization: `Bearer ${user.token}` };
   useEffect(() => {
     axios.get('http://localhost:5000/sales/my', { headers }).then(r => setStats(r.data));
     axios.get('http://localhost:5000/payments/my', { headers }).then(r => setPayments(r.data));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getInsights = async () => {
     setLoadingAI(true);

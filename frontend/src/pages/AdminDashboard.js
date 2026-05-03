@@ -24,7 +24,7 @@ const headers = { Authorization: `Bearer ${user.token}` };
     axios.get('http://localhost:5000/sales/all', { headers }).then(r => setSales(r.data));
     axios.get('http://localhost:5000/sales/top-influencers', { headers }).then(r => setTopInfluencers(r.data));
     axios.get('http://localhost:5000/payments/all', { headers }).then(r => setPayments(r.data));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const totalRevenue = sales.reduce((s, x) => s + x.amount, 0);
   const totalCommission = sales.reduce((s, x) => s + x.commission, 0);
