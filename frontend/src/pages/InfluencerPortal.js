@@ -11,9 +11,10 @@ export default function InfluencerPortal() {
   const [insights, setInsights] = useState([]);
   const [loadingAI, setLoadingAI] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [influencer, setInfluencer] = useState(null);
 
-  const headers = { Authorization: `Bearer ${user.token}` };
+
+// eslint-disable-next-line react-hooks/exhaustive-deps
+const headers = { Authorization: `Bearer ${user.token}` };
 
   useEffect(() => {
     axios.get('http://localhost:5000/sales/my', { headers }).then(r => setStats(r.data));
@@ -34,7 +35,7 @@ export default function InfluencerPortal() {
   };
 
   const copyLink = () => {
-    const code = stats?.sales?.[0]?.influencerId || user.influencerId;
+    
     navigator.clipboard.writeText(`http://localhost:5000/sales/track?ref=${user.name.toUpperCase().replace(/\s/g,'')}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

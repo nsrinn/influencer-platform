@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import StatCard from '../components/StatCard';
 import {
   LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
-  XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend
+  XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid
 } from 'recharts';
 
 const COLORS = ['#a78bfa', '#10b981', '#3b82f6', '#f59e0b', '#ec4899'];
@@ -17,7 +17,8 @@ export default function AdminDashboard() {
   const [fraud, setFraud] = useState(null);
   const [loadingFraud, setLoadingFraud] = useState(false);
 
-  const headers = { Authorization: `Bearer ${user.token}` };
+// eslint-disable-next-line react-hooks/exhaustive-deps
+const headers = { Authorization: `Bearer ${user.token}` };
 
   useEffect(() => {
     axios.get('http://localhost:5000/sales/all', { headers }).then(r => setSales(r.data));
