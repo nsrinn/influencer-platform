@@ -4,7 +4,7 @@ A full-stack web platform for brands to track influencer-driven sales,
 manage payments, and get AI-powered performance insights.
 
 ## 🔗 Live Demo
-https://influencer-platform-xxx.vercel.app
+https://influencer-platform-5g12-bcf7trzty-nsrinns-projects.vercel.app/
 
 ## 🔑 Test Credentials
 | Role | Email | Password |
