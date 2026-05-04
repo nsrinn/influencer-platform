@@ -21,9 +21,9 @@ export default function AdminDashboard() {
 const headers = { Authorization: `Bearer ${user.token}` };
 
   useEffect(() => {
-    axios.get('https://influencer-platform-production-e615.up.railway.app//sales/all', { headers }).then(r => setSales(r.data));
-    axios.get('https://influencer-platform-production-e615.up.railway.app//sales/top-influencers', { headers }).then(r => setTopInfluencers(r.data));
-    axios.get('https://influencer-platform-production-e615.up.railway.app//payments/all', { headers }).then(r => setPayments(r.data));
+    axios.get('https://influencer-platform-production-e615.up.railway.app/sales/all', { headers }).then(r => setSales(r.data));
+    axios.get('https://influencer-platform-production-e615.up.railway.app/sales/top-influencers', { headers }).then(r => setTopInfluencers(r.data));
+    axios.get('https://influencer-platform-production-e615.up.railway.app/payments/all', { headers }).then(r => setPayments(r.data));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const totalRevenue = sales.reduce((s, x) => s + x.amount, 0);
@@ -39,8 +39,8 @@ const headers = { Authorization: `Bearer ${user.token}` };
   }));
 
   const updatePayment = async (id, status) => {
-    await axios.put(`https://influencer-platform-production-e615.up.railway.app//payments/${id}/status`, { status }, { headers });
-    const res = await axios.get('https://influencer-platform-production-e615.up.railway.app//payments/all', { headers });
+    await axios.put(`https://influencer-platform-production-e615.up.railway.app/payments/${id}/status`, { status }, { headers });
+    const res = await axios.get('https://influencer-platform-production-e615.up.railway.app/payments/all', { headers });
     setPayments(res.data);
   };
 
@@ -50,7 +50,7 @@ const headers = { Authorization: `Bearer ${user.token}` };
       influencerId: s.influencerId, date: s.date, amount: s.amount
     }));
     try {
-      const res = await axios.post('https://influencer-platform-production-e615.up.railway.app//ai/fraud', { clickLogs }, { headers });
+      const res = await axios.post('https://influencer-platform-production-e615.up.railway.app/ai/fraud', { clickLogs }, { headers });
       setFraud(res.data);
     } catch (e) { console.error(e); }
     setLoadingFraud(false);

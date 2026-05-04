@@ -12,7 +12,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://influencer-platform-production-e615.up.railway.app//auth/login', form);
+      const res = await axios.post('https://influencer-platform-production-e615.up.railway.app/auth/login', form);
       login(res.data);
       navigate(res.data.role === 'admin' ? '/admin' : '/portal');
     } catch (err) {

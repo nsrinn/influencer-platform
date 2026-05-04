@@ -17,15 +17,15 @@ export default function InfluencerPortal() {
 const headers = { Authorization: `Bearer ${user.token}` };
 
   useEffect(() => {
-    axios.get('https://influencer-platform-production-e615.up.railway.app//sales/my', { headers }).then(r => setStats(r.data));
-    axios.get('https://influencer-platform-production-e615.up.railway.app//payments/my', { headers }).then(r => setPayments(r.data));
+    axios.get('https://influencer-platform-production-e615.up.railway.app/sales/my', { headers }).then(r => setStats(r.data));
+    axios.get('https://influencer-platform-production-e615.up.railway.app/payments/my', { headers }).then(r => setPayments(r.data));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getInsights = async () => {
     setLoadingAI(true);
     try {
       const salesData = stats?.sales?.slice(0, 7).map(s => ({ date: s.date, amount: s.amount })) || [];
-      const res = await axios.post('https://influencer-platform-production-e615.up.railway.app//ai/insights', {
+      const res = await axios.post('https://influencer-platform-production-e615.up.railway.app/ai/insights', {
         salesData, clicks: stats?.clicks, conversions: stats?.conversions,
         influencerName: user.name
       }, { headers });
@@ -36,7 +36,7 @@ const headers = { Authorization: `Bearer ${user.token}` };
 
   const copyLink = () => {
     
-    navigator.clipboard.writeText(`https://influencer-platform-production-e615.up.railway.app//sales/track?ref=${user.name.toUpperCase().replace(/\s/g,'')}`);
+    navigator.clipboard.writeText(`https://influencer-platform-production-e615.up.railway.app/sales/track?ref=${user.name.toUpperCase().replace(/\s/g,'')}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -64,7 +64,7 @@ const headers = { Authorization: `Bearer ${user.token}` };
         <h3 style={styles.cardTitle}>🔗 Your Affiliate Link</h3>
         <div style={styles.linkRow}>
           <code style={styles.linkCode}>
-            https://influencer-platform-production-e615.up.railway.app//sales/track?ref={user.name.toUpperCase().replace(/\s/g,'')}
+            https://influencer-platform-production-e615.up.railway.app/sales/track?ref={user.name.toUpperCase().replace(/\s/g,'')}
           </code>
           <button onClick={copyLink} style={styles.copyBtn}>
             {copied ? '✅ Copied!' : 'Copy'}
